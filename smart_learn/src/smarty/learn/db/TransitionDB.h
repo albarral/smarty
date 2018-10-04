@@ -1,0 +1,38 @@
+#ifndef __SMARTY_LEARN_TRANSITION_DB_H
+#define __SMARTY_LEARN_TRANSITION_DB_H
+
+/***************************************************************************
+ *   Copyright (C) 2018 by Migtron Robotics   *
+ *   albarral@migtron.com   *
+ ***************************************************************************/
+
+#include <vector>
+#include <cppconn/connection.h>
+
+#include "smarty/learn/Transition.h"
+#include "smarty/learn/TransitionPk.h"
+#include "smarty/learn/StatePk.h"
+#include "tron/db/Database.h"
+
+namespace smarty 
+{
+class TransitionDB
+{  
+public:
+    //TransitionDB();
+    
+    static Transition getTransition(tron::Database* pDatabase, sql::Connection* con, TransitionPk& transitionPk);
+    
+    static bool insertTransition(tron::Database* pDatabase, sql::Connection* con, Transition& oTransition);
+    
+    static bool updateTransition(tron::Database* pDatabase, sql::Connection* con, Transition& oTransition);
+    
+    static bool deleteTransition(tron::Database* pDatabase, sql::Connection* con, TransitionPk& transitionPk);
+    
+    static bool updateTransitionQValue(tron::Database* pDatabase, sql::Connection* con, TransitionPk& transitionPk, float q);
+    
+    static std::vector<Transition> getTransactions4State(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk);
+};
+}
+
+#endif
