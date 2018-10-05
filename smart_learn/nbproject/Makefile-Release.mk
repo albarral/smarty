@@ -41,6 +41,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/smarty/learn/Task.o \
 	${OBJECTDIR}/src/smarty/learn/Transition.o \
 	${OBJECTDIR}/src/smarty/learn/TransitionPk.o \
+	${OBJECTDIR}/src/smarty/learn/db/StateDB.o \
+	${OBJECTDIR}/src/smarty/learn/db/TaskDB.o \
 	${OBJECTDIR}/src/smarty/learn/db/TransitionDB.o
 
 
@@ -97,6 +99,16 @@ ${OBJECTDIR}/src/smarty/learn/TransitionPk.o: src/smarty/learn/TransitionPk.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/learn
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/learn/TransitionPk.o src/smarty/learn/TransitionPk.cpp
+
+${OBJECTDIR}/src/smarty/learn/db/StateDB.o: src/smarty/learn/db/StateDB.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smarty/learn/db
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/learn/db/StateDB.o src/smarty/learn/db/StateDB.cpp
+
+${OBJECTDIR}/src/smarty/learn/db/TaskDB.o: src/smarty/learn/db/TaskDB.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smarty/learn/db
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/learn/db/TaskDB.o src/smarty/learn/db/TaskDB.cpp
 
 ${OBJECTDIR}/src/smarty/learn/db/TransitionDB.o: src/smarty/learn/db/TransitionDB.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/learn/db

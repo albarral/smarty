@@ -25,13 +25,15 @@ public:
     
     static bool insertTransition(tron::Database* pDatabase, sql::Connection* con, Transition& oTransition);
     
-    static bool updateTransition(tron::Database* pDatabase, sql::Connection* con, Transition& oTransition);
-    
     static bool deleteTransition(tron::Database* pDatabase, sql::Connection* con, TransitionPk& transitionPk);
-    
+
+    static bool updateTransition(tron::Database* pDatabase, sql::Connection* con, Transition& oTransition);
+        
     static bool updateTransitionQValue(tron::Database* pDatabase, sql::Connection* con, TransitionPk& transitionPk, float q);
     
-    static std::vector<Transition> getTransactions4State(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk);
+    static std::vector<Transition> getStateTransitions(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk);
+
+    static bool deleteStateTransitions(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk);
 };
 }
 
