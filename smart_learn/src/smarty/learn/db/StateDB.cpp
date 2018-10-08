@@ -9,17 +9,34 @@
 
 namespace smarty 
 {
+const std::string StateDB::TABLE = "TAB_STATES";     
+const std::string StateDB::colon = ",";     
+const std::string StateDB::C1_TASKID = "taskID";     
+const std::string StateDB::C2_STATEID = "stateID";     
+const std::string StateDB::C3_REWARD = "reward";     
+
+
+std::string StateDB::whereSpecificState(StatePk& statePk)
+{
+    return " WHERE " + C1_TASKID + " = " + std::to_string(statePk.getTaskID()) +
+            " and " + C2_STATEID + " = " + std::to_string(statePk.getStateID());
+}
+
+std::string StateDB::whereSpecificTask(int taskID)
+{
+     return " WHERE " + C1_TASKID + " = " + std::to_string(taskID);
+}
+
 State StateDB::getState(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk)
 {
-    std::string query = "SELECT * FROM TAB_STATES WHERE taskID = " + std::to_string(statePk.getTaskID()) +
-            " and stateID = " + std::to_string(statePk.getStateID());
+    std::string query = "SELECT * FROM " + TABLE + whereSpecificState(statePk);
     
     sql::ResultSet* res = pDatabase->select(query, con);
     
     // if found state, return it
     if (res->next())
     {
-        State oState(statePk, res->getDouble("reward"));
+        State oState(statePk, res->getDouble(C3_REWARD));
         // also get its transitions
         oState.getListTransitions() = TransitionDB::getStateTransitions(pDatabase, con, statePk);
         return oState;
@@ -35,9 +52,10 @@ State StateDB::getState(tron::Database* pDatabase, sql::Connection* con, StatePk
 bool StateDB::insertState(tron::Database* pDatabase, sql::Connection* con, State& oState)
 {
     StatePk& statePk = oState.getStatePk();
-    std::string query = "INSERT INTO TAB_STATES (taskID, stateID, reward) VALUES (" +
-            std::to_string(statePk.getTaskID()) + ", " +  
-            std::to_string(statePk.getStateID()) + ", " +             
+    std::string query = "INSERT INTO " + TABLE +
+            "(" + C1_TASKID + colon + C2_STATEID + colon + C3_REWARD + ") VALUES (" +
+            std::to_string(statePk.getTaskID()) + colon +  
+            std::to_string(statePk.getStateID()) + colon +             
             std::to_string(oState.getReward()) + ")";
     
     bool bok = pDatabase->update(query, con);
@@ -55,8 +73,7 @@ bool StateDB::insertState(tron::Database* pDatabase, sql::Connection* con, State
 
 bool StateDB::deleteState(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk)
 {
-    std::string query = "DELETE FROM TAB_STATES WHERE taskID = " + std::to_string(statePk.getTaskID()) +
-            " and stateID = " + std::to_string(statePk.getStateID());
+    std::string query = "DELETE FROM " + TABLE + whereSpecificState(statePk);
                  
     bool bok = pDatabase->update(query, con);   
 
@@ -86,16 +103,16 @@ bool StateDB::updateState(tron::Database* pDatabase, sql::Connection* con, State
 
 bool StateDB::updateStateReward(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk, float reward)
 {
-    std::string query = "UPDATE TAB_STATES SET reward = " + std::to_string(reward)  +
-            " WHERE taskID = " + std::to_string(statePk.getTaskID()) +
-            " and stateID = " + std::to_string(statePk.getStateID());
+    std::string query = "UPDATE " + TABLE + 
+            " SET " + C3_REWARD + " = " + std::to_string(reward)  + 
+            whereSpecificState(statePk);
 
     return pDatabase->update(query, con);
 }
 
 std::vector<State> StateDB::getTaskStates(tron::Database* pDatabase, sql::Connection* con, int taskID)
 {
-    std::string query = "SELECT * FROM TAB_STATES WHERE taskID = " + std::to_string(taskID);
+    std::string query = "SELECT * FROM " + TABLE + whereSpecificTask(taskID);
 
     sql::ResultSet* res = pDatabase->select(query, con);
     
@@ -103,8 +120,8 @@ std::vector<State> StateDB::getTaskStates(tron::Database* pDatabase, sql::Connec
     // for each obtained State, load its transitions and add to list
     while (res->next())
     {
-        StatePk statePk(taskID, res->getInt("stateID"));
-        State oState(statePk, res->getDouble("reward"));
+        StatePk statePk(taskID, res->getInt(C2_STATEID));
+        State oState(statePk, res->getDouble(C3_REWARD));
         oState.getListTransitions() = TransitionDB::getStateTransitions(pDatabase, con, statePk);
         listStates.push_back(oState);
     }
@@ -115,14 +132,13 @@ std::vector<State> StateDB::getTaskStates(tron::Database* pDatabase, sql::Connec
 bool StateDB::deleteTaskStates(tron::Database* pDatabase, sql::Connection* con, int taskID)
 {
     // delete states
-    std::string query = "DELETE FROM TAB_STATES WHERE taskID = " + std::to_string(taskID);
-    // also delete state transitions
-    std::string query2 = "DELETE FROM TAB_TRANSITIONS WHERE taskID = " + std::to_string(taskID);
-                 
+    std::string query = "DELETE FROM " + TABLE + whereSpecificTask(taskID);
+
     bool bok = pDatabase->update(query, con);       
     
+    // also delete the task transitions
     if (bok)
-        bok = pDatabase->update(query2, con);       
+        bok = TransitionDB::deleteTaskTransitions(pDatabase, con, taskID);
     
     return bok;    
 }

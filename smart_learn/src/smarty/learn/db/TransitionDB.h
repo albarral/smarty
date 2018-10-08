@@ -18,6 +18,16 @@ namespace smarty
 {
 class TransitionDB
 {  
+private:
+    /*! table & columns */
+    static const std::string TABLE;
+    static const std::string colon;
+    static const std::string C1_TASKID;
+    static const std::string C2_STATEID;
+    static const std::string C3_TRANSID;
+    static const std::string C4_NEXTSTATE;
+    static const std::string C5_Q;
+    
 public:
     //TransitionDB();
     
@@ -34,6 +44,14 @@ public:
     static std::vector<Transition> getStateTransitions(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk);
 
     static bool deleteStateTransitions(tron::Database* pDatabase, sql::Connection* con, StatePk& statePk);
+
+    static bool deleteTaskTransitions(tron::Database* pDatabase, sql::Connection* con, int taskID);
+    
+private:
+    // builds where clause for specified transition
+    static std::string whereSpecificTransition(TransitionPk& transitionPk);
+    // builds where clause for specified state
+    static std::string whereSpecificState(StatePk& statePk);
 };
 }
 

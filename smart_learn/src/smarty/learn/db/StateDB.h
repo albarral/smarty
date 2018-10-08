@@ -17,6 +17,14 @@ namespace smarty
 {
 class StateDB
 {
+private:
+    /*! table & columns */
+    static const std::string TABLE;
+    static const std::string colon;
+    static const std::string C1_TASKID;
+    static const std::string C2_STATEID;
+    static const std::string C3_REWARD;
+
 public:
     //StateDB();
 
@@ -33,6 +41,13 @@ public:
     static std::vector<State> getTaskStates(tron::Database* pDatabase, sql::Connection* con, int taskID);
 
     static bool deleteTaskStates(tron::Database* pDatabase, sql::Connection* con, int taskID);
+    
+private:
+    // builds where clause for specified state
+    static std::string whereSpecificState(StatePk& statePk);
+    // builds where clause for specified task
+    static std::string whereSpecificTask(int taskID);
+    
 };
 }
 
