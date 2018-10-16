@@ -17,19 +17,11 @@ namespace smarty
 {
 // Class used to manage the rules of a task.
 // A rule is a combination of action, state and its associated result.
-// A results matrix is used to represent all the task rules.
+// A rules matrix is used to represent all the task rules.
 class TaskRules
 {
  public:
-    /*! task results  */
-    enum eResults
-    {
-         eRESULT_UNDEFINED,                       
-         eRESULT_WIN,                       
-         eRESULT_LOOSE,                       
-         eRESULT_NEUTRAL,                    
-         eRESULT_DIM
-    };
+     static const int UNDEF_RESULT = 0;
     
     struct st_rule{
         int action; 
@@ -41,8 +33,8 @@ private:
     static log4cxx::LoggerPtr logger;
     std::set<int> setActions;    // available actions for the task
     std::set<int> setStates;    // available states for the task
-    std::vector<st_rule> listRules;  // main rules of the task
-    cv::Mat matResults;   // results matrix for all action combinations
+    std::vector<st_rule> listRules;  // task main rules (specified)
+    cv::Mat matRules;   // rules matrix (results for all action-state combinations)
     
 public:
     TaskRules();
@@ -62,24 +54,21 @@ public:
     // add rule to rules list
     bool addRule(int action, int state, int result);
     
-    // clear all actions (implies clearing results)
+    // clear all actions (implies clearing rules matrix)
     void clearActions();
-    // clear all states (implies clearing results)
+    // clear all states (implies clearing rules matrix)
     void clearStates();
-    // clear all rules (implies clearing results)
+    // clear all rules (implies clearing rules matrix)
     void clearRules();
             
-    // build results matrix from existing rules
-    void setResults();
+    // build rules matrix from task main rules
+    void buildMatrix();
     // get result for given action-state combination
-    int getResult4Action(int action, int state);
-    
-    // get opposite result to given one
-    static int getOppositeResult(int result);
+    int getResult4Action(int action, int state);    
     
 private:
-    // clear results matrix
-    void clearResults();
+    // clear rules matrix
+    void clearMatrix();
 };
 }
 

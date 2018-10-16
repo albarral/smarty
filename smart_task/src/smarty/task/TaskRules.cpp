@@ -28,7 +28,7 @@ bool TaskRules::addAction(int action)
 {
     int preSize = setActions.size();
     setActions.emplace(action);
-    
+    // returns true if correctly added (not existing before)
     return (setActions.size() > preSize);
 }
 
@@ -36,14 +36,13 @@ bool TaskRules::addState(int state)
 {
     int preSize = setStates.size();
     setStates.emplace(state);
-    
+    // returns true if correctly added (not existing before)    
     return (setStates.size() > preSize);
 }
 
 bool TaskRules::addRule(int action, int state, int result)
 {
-    st_rule rule{action, state, result};
-    
+    st_rule rule{action, state, result};    
     listRules.push_back(rule);
     return true;    
 }
@@ -51,32 +50,32 @@ bool TaskRules::addRule(int action, int state, int result)
 void TaskRules::clearActions()
 {
     setActions.clear();
-    clearResults();    
+    clearMatrix();    
 }
 
 void TaskRules::clearStates()
 {
     setStates.clear();
-    clearResults();        
+    clearMatrix();        
 }
 
 void TaskRules::clearRules()
 {
     listRules.clear();    
-    clearResults();        
+    clearMatrix();        
 }
 
-void TaskRules::setResults()
+void TaskRules::buildMatrix()
 {
     // create matrix 
-    matResults = cv::Mat::zeros(setActions.size(), setStates.size(), CV_8UC1);
+    matRules = cv::Mat::zeros(setActions.size(), setStates.size(), CV_8UC1);
         
     // set results for all rules
     for (st_rule& rule : listRules)
     {
         try 
         {
-            matResults.at<uchar>(rule.action, rule.state) = (uchar)rule.result;
+            matRules.at<uchar>(rule.action, rule.state) = (uchar)rule.result;
         } 
         // skip if action or state not valid
         catch (std::exception& e)
@@ -91,38 +90,17 @@ int TaskRules::getResult4Action(int action, int state)
     try 
     {
         // get result for given combination
-        return (int)matResults.at<uchar>(action, state);
+        return (int)matRules.at<uchar>(action, state);
     } 
     // protect invalid access
     catch (std::exception& e)
     {
-        return eRESULT_UNDEFINED;
+        return UNDEF_RESULT;
     }
 }
 
-int TaskRules::getOppositeResult(int result)
+void TaskRules::clearMatrix()
 {
-    switch (result)
-    {
-        case eRESULT_WIN:
-            return eRESULT_LOOSE;
-            break;
-            
-        case eRESULT_LOOSE:
-            return eRESULT_WIN;
-            break;
-            
-        case eRESULT_NEUTRAL:
-            return eRESULT_NEUTRAL;
-            break;
-            
-        default:
-            return eRESULT_UNDEFINED;
-    }
-}
-
-void TaskRules::clearResults()
-{
-    matResults = cv::Scalar(eRESULT_UNDEFINED);
+    matRules = cv::Scalar(UNDEF_RESULT);
 }
 }

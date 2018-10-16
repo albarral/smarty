@@ -41,7 +41,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/smarty/task/Task.o \
 	${OBJECTDIR}/src/smarty/task/TaskRules.o \
 	${OBJECTDIR}/src/smarty/task/Transition.o \
-	${OBJECTDIR}/src/smarty/task/TransitionPk.o
+	${OBJECTDIR}/src/smarty/task/TransitionPk.o \
+	${OBJECTDIR}/src/smarty/task/WorldStates.o
 
 
 # C Compiler Flags
@@ -102,6 +103,11 @@ ${OBJECTDIR}/src/smarty/task/TransitionPk.o: src/smarty/task/TransitionPk.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/TransitionPk.o src/smarty/task/TransitionPk.cpp
+
+${OBJECTDIR}/src/smarty/task/WorldStates.o: src/smarty/task/WorldStates.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/WorldStates.o src/smarty/task/WorldStates.cpp
 
 # Subprojects
 .build-subprojects:
