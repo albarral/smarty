@@ -35,7 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/smarty/agent/AgentModule.o \
+	${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o \
+	${OBJECTDIR}/src/smarty/agent/Aware.o \
 	${OBJECTDIR}/src/smarty/agent/core/AgentBus.o \
 	${OBJECTDIR}/src/smarty/agent/core/AgentData.o
 
@@ -64,10 +65,15 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_agent.${CND_DLIB_EXT}: ${OBJ
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_agent.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared -fPIC
 
-${OBJECTDIR}/src/smarty/agent/AgentModule.o: src/smarty/agent/AgentModule.cpp 
+${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o: src/smarty/agent/AgentBehaviour.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/AgentModule.o src/smarty/agent/AgentModule.cpp
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o src/smarty/agent/AgentBehaviour.cpp
+
+${OBJECTDIR}/src/smarty/agent/Aware.o: src/smarty/agent/Aware.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/Aware.o src/smarty/agent/Aware.cpp
 
 ${OBJECTDIR}/src/smarty/agent/core/AgentBus.o: src/smarty/agent/core/AgentBus.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent/core

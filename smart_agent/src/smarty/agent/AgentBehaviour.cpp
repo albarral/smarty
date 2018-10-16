@@ -3,25 +3,23 @@
  *   albarral@migtron.com   *
  ***************************************************************************/
 
-#include "smarty/agent/AgentModule.h"
+#include "smarty/agent/AgentBehaviour.h"
 
 namespace smarty
 {
 // Constructor 
-AgentModule::AgentModule()
+AgentBehaviour::AgentBehaviour(std::string name) : tron::Behaviour(name)
 {    
-    modName = "AgentModule";
     benabled = false;
     pAgentBus = 0;
     pAgentData = 0;
  }
 
-void AgentModule::init(AgentBus& oAgentBus, AgentData& oAgentData)
+void AgentBehaviour::connect(AgentBus& oAgentBus, AgentData& oAgentData)
 {
     pAgentBus = &oAgentBus;    
     pAgentData = &oAgentData;    
     benabled = true;    
-    showInitialized();
 }
 
 }
