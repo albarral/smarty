@@ -21,6 +21,8 @@
         </logicalFolder>
         <itemPath>src/smarty/agent/AgentBehaviour.cpp</itemPath>
         <itemPath>src/smarty/agent/AgentBehaviour.h</itemPath>
+        <itemPath>src/smarty/agent/Analyzer.cpp</itemPath>
+        <itemPath>src/smarty/agent/Analyzer.h</itemPath>
         <itemPath>src/smarty/agent/Aware.cpp</itemPath>
         <itemPath>src/smarty/agent/Aware.h</itemPath>
       </logicalFolder>
@@ -93,6 +95,10 @@
       </item>
       <item path="src/smarty/agent/AgentBehaviour.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/smarty/agent/Analyzer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/smarty/agent/Analyzer.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/smarty/agent/Aware.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/smarty/agent/Aware.h" ex="false" tool="3" flavor2="0">
@@ -135,6 +141,10 @@
             flavor2="0">
       </item>
       <item path="src/smarty/agent/AgentBehaviour.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/smarty/agent/Analyzer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/smarty/agent/Analyzer.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/smarty/agent/Aware.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o \
+	${OBJECTDIR}/src/smarty/agent/Analyzer.o \
 	${OBJECTDIR}/src/smarty/agent/Aware.o \
 	${OBJECTDIR}/src/smarty/agent/core/AgentBus.o \
 	${OBJECTDIR}/src/smarty/agent/core/AgentData.o
@@ -69,6 +70,11 @@ ${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o: src/smarty/agent/AgentBehaviour.
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o src/smarty/agent/AgentBehaviour.cpp
+
+${OBJECTDIR}/src/smarty/agent/Analyzer.o: src/smarty/agent/Analyzer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/Analyzer.o src/smarty/agent/Analyzer.cpp
 
 ${OBJECTDIR}/src/smarty/agent/Aware.o: src/smarty/agent/Aware.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent
