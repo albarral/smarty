@@ -5,26 +5,26 @@
 
 #include <exception>
 
-#include "smarty/task/WorldStates.h"
+#include "smarty/task/Environment.h"
 
 using namespace log4cxx;
 
 namespace smarty 
 {
-LoggerPtr WorldStates::logger(Logger::getLogger("smarty.task"));
+LoggerPtr Environment::logger(Logger::getLogger("smarty.task"));
 
-WorldStates::WorldStates() 
+Environment::Environment() 
 {
 }
 
-WorldStates::~WorldStates ()
+Environment::~Environment ()
 {
     setOwnStatus.clear();
     setWorldStatus.clear();
     listStates.clear();        
 }
     
-bool WorldStates::addOwnStatus(int ownStatus)
+bool Environment::addOwnStatus(int ownStatus)
 {
     int preSize = setOwnStatus.size();
     setOwnStatus.emplace(ownStatus);
@@ -32,7 +32,7 @@ bool WorldStates::addOwnStatus(int ownStatus)
     return (setOwnStatus.size() > preSize);
 }
 
-bool WorldStates::addWorldStatus(int worldStatus)
+bool Environment::addWorldStatus(int worldStatus)
 {
     int preSize = setWorldStatus.size();
     setWorldStatus.emplace(worldStatus);
@@ -40,32 +40,32 @@ bool WorldStates::addWorldStatus(int worldStatus)
     return (setWorldStatus.size() > preSize);
 }
 
-bool WorldStates::addState(int ownStatus, int worldStatus, int state)
+bool Environment::addState(int ownStatus, int worldStatus, int state)
 {
     st_state stState{ownStatus, worldStatus, state};    
     listStates.push_back(stState);
     return true;    
 }
 
-void WorldStates::clearOwnStatusList()
+void Environment::clearOwnStatusList()
 {
     setOwnStatus.clear();
     clearMatrix();    
 }
 
-void WorldStates::clearWorldStatusList()
+void Environment::clearWorldStatusList()
 {
     setWorldStatus.clear();
     clearMatrix();        
 }
 
-void WorldStates::clearStates()
+void Environment::clearStates()
 {
     listStates.clear();    
     clearMatrix();        
 }
 
-void WorldStates::buildMatrix()
+void Environment::buildMatrix()
 {
     // create matrix 
     matStates = cv::Mat::zeros(setOwnStatus.size(), setWorldStatus.size(), CV_8UC1);
@@ -80,12 +80,12 @@ void WorldStates::buildMatrix()
         // skip if action or state not valid
         catch (std::exception& e)
         {              
-            LOG4CXX_ERROR(logger, "WorldStates: invalid state rejected " << rule.ownStatus << "," << rule.worldStatus << "," << rule.state);            
+            LOG4CXX_ERROR(logger, "Environment: invalid state rejected " << rule.ownStatus << "," << rule.worldStatus << "," << rule.state);            
         }            
     }    
 }
 
-int WorldStates::getState4Situation(int ownStatus, int worldStatus)
+int Environment::getState4Situation(int ownStatus, int worldStatus)
 {
     try 
     {
@@ -99,7 +99,7 @@ int WorldStates::getState4Situation(int ownStatus, int worldStatus)
     }
 }
 
-void WorldStates::clearMatrix()
+void Environment::clearMatrix()
 {
     matStates = cv::Scalar(UNDEF_STATE);
 }

@@ -1,5 +1,5 @@
-#ifndef __SMARTY_TASK_WORLDSTATES_H
-#define __SMARTY_TASK_WORLDSTATES_H
+#ifndef __SMARTY_TASK_ENVIRONMENT_H
+#define __SMARTY_TASK_ENVIRONMENT_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -15,10 +15,10 @@
 
 namespace smarty 
 {
-// Class used to manage the states of the world (with world understood as the environment where a task occurs).
-// A world state is a combination of own status, world status and its associated state.
-// A states matrix is used to represent all the world states.
-class WorldStates
+// Class used to manage the states of the environment (the place where a task occurs).
+// An environment state is a combination of own status, world status and its associated state.
+// A states matrix is used to represent all the environment states.
+class Environment
 {
  public:
      static const int UNDEF_STATE = 0;
@@ -34,11 +34,11 @@ private:
     std::set<int> setOwnStatus;    // available own status options
     std::set<int> setWorldStatus;    // available world status options
     std::vector<st_state> listStates;  // world main states (specified)
-    cv::Mat matStates;   // world states matrix (states for all own_status-world_status combinations)
+    cv::Mat matStates;   // environment states matrix (states for all own_status-world_status combinations)
     
 public:
-    WorldStates();
-    ~WorldStates();
+    Environment();
+    ~Environment();
 
     // get copy of own status list
     std::set<int> getListOwnStatus() {return setOwnStatus;};

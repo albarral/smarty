@@ -14,7 +14,7 @@ namespace smarty
 class Analyzer : public AgentBehaviour
 {
 protected:    
-    WorldStates* pWorldStates;  // shared access to world states   
+    Environment* pEnvironment;  // shared access to environment   
     TaskRules* pTaskRules;     // shared access to task rules
     bool bchangeAnalyzed;
     int numChange; 

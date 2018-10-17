@@ -14,7 +14,7 @@ namespace smarty
 class Aware : public AgentBehaviour
 {
 protected:    
-    WorldStates* pWorldStates;  // shared access to world states   
+    Environment* pEnvironment;  // shared access to environment   
     bool bchangeDetected;
     int numChange; 
 

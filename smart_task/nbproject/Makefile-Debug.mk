@@ -35,14 +35,14 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/smarty/task/Environment.o \
 	${OBJECTDIR}/src/smarty/task/Learn.o \
 	${OBJECTDIR}/src/smarty/task/State.o \
 	${OBJECTDIR}/src/smarty/task/StatePk.o \
 	${OBJECTDIR}/src/smarty/task/Task.o \
 	${OBJECTDIR}/src/smarty/task/TaskRules.o \
 	${OBJECTDIR}/src/smarty/task/Transition.o \
-	${OBJECTDIR}/src/smarty/task/TransitionPk.o \
-	${OBJECTDIR}/src/smarty/task/WorldStates.o
+	${OBJECTDIR}/src/smarty/task/TransitionPk.o
 
 
 # C Compiler Flags
@@ -68,6 +68,11 @@ LDLIBSOPTIONS=-lopencv_core
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_task.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_task.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared -fPIC
+
+${OBJECTDIR}/src/smarty/task/Environment.o: src/smarty/task/Environment.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/Environment.o src/smarty/task/Environment.cpp
 
 ${OBJECTDIR}/src/smarty/task/Learn.o: src/smarty/task/Learn.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
@@ -103,11 +108,6 @@ ${OBJECTDIR}/src/smarty/task/TransitionPk.o: src/smarty/task/TransitionPk.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/TransitionPk.o src/smarty/task/TransitionPk.cpp
-
-${OBJECTDIR}/src/smarty/task/WorldStates.o: src/smarty/task/WorldStates.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/WorldStates.o src/smarty/task/WorldStates.cpp
 
 # Subprojects
 .build-subprojects:

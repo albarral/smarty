@@ -10,7 +10,7 @@ namespace smarty
 
 Aware::Aware() : AgentBehaviour("Aware")
 {
-    pWorldStates = 0;
+    pEnvironment = 0;
     bchangeDetected = false;
     numChange = 0;
 }
@@ -21,7 +21,7 @@ Aware::Aware() : AgentBehaviour("Aware")
 
 void Aware::connect(AgentBus& oAgentBus, AgentData& oAgentData)
 {
-    pWorldStates = &oAgentData.getWorldStates();    
+    pEnvironment = &oAgentData.getEnvironment();    
     AgentBehaviour::connect(oAgentBus, oAgentData);
 }
 
@@ -29,7 +29,7 @@ void Aware::connect(AgentBus& oAgentBus, AgentData& oAgentData)
 void Aware::informChangeDetected()
 {
     if (bchangeDetected)
-        pAgentBus->getSO_CHANGE_DETECTED().setValue(numChange);
+        pAgentBus->getSO_CHANGE_DETECTED().setValue(++numChange);
 }
 
 }
