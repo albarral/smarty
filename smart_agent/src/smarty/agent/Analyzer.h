@@ -15,7 +15,7 @@ class Analyzer : public AgentBehaviour
 {
 protected:    
     Environment* pEnvironment;  // shared access to environment   
-    TaskRules* pTaskRules;     // shared access to task rules
+    Rules* pRules;     // shared access to task rules
     bool bchangeAnalyzed;
     int numChange; 
 

@@ -9,7 +9,7 @@
 //#include <mutex>
 
 #include "smarty/task/Task.h"
-#include "smarty/task/TaskRules.h"
+#include "smarty/task/Rules.h"
 #include "smarty/task/Environment.h"
 
 namespace smarty 
@@ -20,7 +20,7 @@ class AgentData
 //        std::mutex mutexTask;        
 //        std::mutex mutexRules;        
         Task oTask;          // performed task
-        TaskRules oTaskRules;     // task rules
+        Rules oRules;     // task rules
         Environment oEnvironment; // task environment
         
     public:
@@ -28,11 +28,11 @@ class AgentData
         //~AgentData();
                 
         Task& getTask() {return oTask;};
-        TaskRules& getTaskRules() {return oTaskRules;};
+        Rules& getRules() {return oRules;};
         Environment& getEnvironment() {return oEnvironment;};
         
         void setTask(Task& oTask) {this->oTask = oTask;};
-        void setTaskRules(TaskRules& oTaskRules) {this->oTaskRules = oTaskRules;};
+        void setRules(Rules& oRules) {this->oRules = oRules;};
         void setEnvironment(Environment& oEnvironment) {this->oEnvironment = oEnvironment;};
 };
 }    

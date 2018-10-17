@@ -1,5 +1,5 @@
-#ifndef __SMARTY_TASK_TASKRULES_H
-#define __SMARTY_TASK_TASKRULES_H
+#ifndef __SMARTY_TASK_RULES_H
+#define __SMARTY_TASK_RULES_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -18,7 +18,7 @@ namespace smarty
 // Class used to manage the rules of a task.
 // A rule is a combination of action, state and its associated result.
 // A rules matrix is used to represent all the task rules.
-class TaskRules
+class Rules
 {
  public:
      static const int UNDEF_RESULT = 0;
@@ -37,8 +37,8 @@ private:
     cv::Mat matRules;   // rules matrix (results for all action-state combinations)
     
 public:
-    TaskRules();
-    ~TaskRules();
+    Rules();
+    ~Rules();
 
     // get copy of actions list
     std::set<int> getListActions() {return setActions;};

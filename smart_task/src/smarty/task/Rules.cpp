@@ -5,26 +5,26 @@
 
 #include <exception>
 
-#include "smarty/task/TaskRules.h"
+#include "smarty/task/Rules.h"
 
 using namespace log4cxx;
 
 namespace smarty 
 {
-LoggerPtr TaskRules::logger(Logger::getLogger("smarty.task"));
+LoggerPtr Rules::logger(Logger::getLogger("smarty.task"));
 
-TaskRules::TaskRules() 
+Rules::Rules() 
 {
 }
 
-TaskRules::~TaskRules ()
+Rules::~Rules ()
 {
     setActions.clear();
     setStates.clear();
     listRules.clear();        
 }
     
-bool TaskRules::addAction(int action)
+bool Rules::addAction(int action)
 {
     int preSize = setActions.size();
     setActions.emplace(action);
@@ -32,7 +32,7 @@ bool TaskRules::addAction(int action)
     return (setActions.size() > preSize);
 }
 
-bool TaskRules::addState(int state)
+bool Rules::addState(int state)
 {
     int preSize = setStates.size();
     setStates.emplace(state);
@@ -40,32 +40,32 @@ bool TaskRules::addState(int state)
     return (setStates.size() > preSize);
 }
 
-bool TaskRules::addRule(int action, int state, int result)
+bool Rules::addRule(int action, int state, int result)
 {
     st_rule rule{action, state, result};    
     listRules.push_back(rule);
     return true;    
 }
 
-void TaskRules::clearActions()
+void Rules::clearActions()
 {
     setActions.clear();
     clearMatrix();    
 }
 
-void TaskRules::clearStates()
+void Rules::clearStates()
 {
     setStates.clear();
     clearMatrix();        
 }
 
-void TaskRules::clearRules()
+void Rules::clearRules()
 {
     listRules.clear();    
     clearMatrix();        
 }
 
-void TaskRules::buildMatrix()
+void Rules::buildMatrix()
 {
     // create matrix 
     matRules = cv::Mat::zeros(setActions.size(), setStates.size(), CV_8UC1);
@@ -80,12 +80,12 @@ void TaskRules::buildMatrix()
         // skip if action or state not valid
         catch (std::exception& e)
         {              
-            LOG4CXX_ERROR(logger, "TaskRules: invalid rule rejected " << rule.action << "," << rule.state << "," << rule.result);            
+            LOG4CXX_ERROR(logger, "Rules: invalid rule rejected " << rule.action << "," << rule.state << "," << rule.result);            
         }            
     }    
 }
 
-int TaskRules::getResult4Action(int action, int state) 
+int Rules::getResult4Action(int action, int state) 
 {
     try 
     {
@@ -99,7 +99,7 @@ int TaskRules::getResult4Action(int action, int state)
     }
 }
 
-void TaskRules::clearMatrix()
+void Rules::clearMatrix()
 {
     matRules = cv::Scalar(UNDEF_RESULT);
 }

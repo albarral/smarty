@@ -37,10 +37,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/src/smarty/task/Environment.o \
 	${OBJECTDIR}/src/smarty/task/Learn.o \
+	${OBJECTDIR}/src/smarty/task/Rules.o \
 	${OBJECTDIR}/src/smarty/task/State.o \
 	${OBJECTDIR}/src/smarty/task/StatePk.o \
 	${OBJECTDIR}/src/smarty/task/Task.o \
-	${OBJECTDIR}/src/smarty/task/TaskRules.o \
 	${OBJECTDIR}/src/smarty/task/Transition.o \
 	${OBJECTDIR}/src/smarty/task/TransitionPk.o
 
@@ -79,6 +79,11 @@ ${OBJECTDIR}/src/smarty/task/Learn.o: src/smarty/task/Learn.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/Learn.o src/smarty/task/Learn.cpp
 
+${OBJECTDIR}/src/smarty/task/Rules.o: src/smarty/task/Rules.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/Rules.o src/smarty/task/Rules.cpp
+
 ${OBJECTDIR}/src/smarty/task/State.o: src/smarty/task/State.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
 	${RM} "$@.d"
@@ -93,11 +98,6 @@ ${OBJECTDIR}/src/smarty/task/Task.o: src/smarty/task/Task.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/Task.o src/smarty/task/Task.cpp
-
-${OBJECTDIR}/src/smarty/task/TaskRules.o: src/smarty/task/TaskRules.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/smarty/task
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/task/TaskRules.o src/smarty/task/TaskRules.cpp
 
 ${OBJECTDIR}/src/smarty/task/Transition.o: src/smarty/task/Transition.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/smarty/task

@@ -17,14 +17,14 @@
         <itemPath>src/smarty/task/Environment.h</itemPath>
         <itemPath>src/smarty/task/Learn.cpp</itemPath>
         <itemPath>src/smarty/task/Learn.h</itemPath>
+        <itemPath>src/smarty/task/Rules.cpp</itemPath>
+        <itemPath>src/smarty/task/Rules.h</itemPath>
         <itemPath>src/smarty/task/State.cpp</itemPath>
         <itemPath>src/smarty/task/State.h</itemPath>
         <itemPath>src/smarty/task/StatePk.cpp</itemPath>
         <itemPath>src/smarty/task/StatePk.h</itemPath>
         <itemPath>src/smarty/task/Task.cpp</itemPath>
         <itemPath>src/smarty/task/Task.h</itemPath>
-        <itemPath>src/smarty/task/TaskRules.cpp</itemPath>
-        <itemPath>src/smarty/task/TaskRules.h</itemPath>
         <itemPath>src/smarty/task/Transition.cpp</itemPath>
         <itemPath>src/smarty/task/Transition.h</itemPath>
         <itemPath>src/smarty/task/TransitionPk.cpp</itemPath>
@@ -76,6 +76,10 @@
       </item>
       <item path="src/smarty/task/Learn.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/smarty/task/Rules.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/smarty/task/Rules.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/smarty/task/State.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/smarty/task/State.h" ex="false" tool="3" flavor2="0">
@@ -87,10 +91,6 @@
       <item path="src/smarty/task/Task.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/smarty/task/Task.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/smarty/task/TaskRules.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/smarty/task/TaskRules.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/smarty/task/Transition.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -129,6 +129,10 @@
       </item>
       <item path="src/smarty/task/Learn.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/smarty/task/Rules.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/smarty/task/Rules.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/smarty/task/State.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/smarty/task/State.h" ex="false" tool="3" flavor2="0">
@@ -140,10 +144,6 @@
       <item path="src/smarty/task/Task.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/smarty/task/Task.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/smarty/task/TaskRules.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/smarty/task/TaskRules.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/smarty/task/Transition.cpp" ex="false" tool="1" flavor2="0">
       </item>

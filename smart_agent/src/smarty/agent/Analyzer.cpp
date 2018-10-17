@@ -11,7 +11,7 @@ namespace smarty
 Analyzer::Analyzer() : AgentBehaviour("Analyzer")
 {
     pEnvironment = 0;
-    pTaskRules = 0;
+    pRules = 0;
     bchangeAnalyzed = false;
     numChange = 0;
 }
@@ -23,7 +23,7 @@ Analyzer::Analyzer() : AgentBehaviour("Analyzer")
 void Analyzer::connect(AgentBus& oAgentBus, AgentData& oAgentData)
 {
     pEnvironment = &oAgentData.getEnvironment();    
-    pTaskRules = &oAgentData.getTaskRules();
+    pRules = &oAgentData.getRules();
     AgentBehaviour::connect(oAgentBus, oAgentData);
 }
 
