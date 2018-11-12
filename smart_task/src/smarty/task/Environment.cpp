@@ -9,7 +9,7 @@
 
 using namespace log4cxx;
 
-namespace smarty 
+namespace smart 
 {
 LoggerPtr Environment::logger(Logger::getLogger("smarty.task"));
 

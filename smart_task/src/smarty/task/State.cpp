@@ -5,7 +5,7 @@
 
 #include "smarty/task/State.h"
 
-namespace smarty 
+namespace smart 
 {
 State::State() 
 {

@@ -9,11 +9,12 @@
             <header-extensions>h</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects>
+                <make-dep-project>../../tron/tron_space</make-dep-project>
                 <make-dep-project>../../tron/tron_control</make-dep-project>
                 <make-dep-project>../smart_task</make-dep-project>
             </make-dep-projects>
             <sourceRootList>
-                <sourceRootElem>src/smarty/agent</sourceRootElem>
+                <sourceRootElem>src/smart/agent</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

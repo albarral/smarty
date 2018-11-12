@@ -1,5 +1,5 @@
-#ifndef __SMARTY_TASK_ENVIRONMENT_H
-#define __SMARTY_TASK_ENVIRONMENT_H
+#ifndef __SMART_TASK_ENVIRONMENT_H
+#define __SMART_TASK_ENVIRONMENT_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -13,7 +13,7 @@
 #include <set>
 #include <vector>
 
-namespace smarty 
+namespace smart 
 {
 // Class used to manage the states of the environment (the place where a task occurs).
 // An environment state is a combination of own status, world status and its associated state.

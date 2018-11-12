@@ -35,11 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o \
-	${OBJECTDIR}/src/smarty/agent/Analyzer.o \
-	${OBJECTDIR}/src/smarty/agent/Aware.o \
-	${OBJECTDIR}/src/smarty/agent/core/AgentBus.o \
-	${OBJECTDIR}/src/smarty/agent/core/AgentData.o
+	${OBJECTDIR}/src/smart/agent/Aware.o \
+	${OBJECTDIR}/src/smart/agent/SmartBehaviour.o \
+	${OBJECTDIR}/src/smart/agent/core/SmartBus.o \
+	${OBJECTDIR}/src/smart/agent/core/SmartData.o
 
 
 # C Compiler Flags
@@ -56,7 +55,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-Wl,-rpath,../smart_task/dist/Debug/GNU-Linux -L../smart_task/dist/Debug/GNU-Linux -lsmart_task -Wl,-rpath,../../tron/tron_control/dist/Debug/GNU-Linux -L../../tron/tron_control/dist/Debug/GNU-Linux -ltron_control
+LDLIBSOPTIONS=-Wl,-rpath,../smart_task/dist/Debug/GNU-Linux -L../smart_task/dist/Debug/GNU-Linux -lsmart_task -Wl,-rpath,../../tron/tron_control/dist/Debug/GNU-Linux -L../../tron/tron_control/dist/Debug/GNU-Linux -ltron_control -Wl,-rpath,../../tron/tron_space/dist/Debug/GNU-Linux -L../../tron/tron_space/dist/Debug/GNU-Linux -ltron_space
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -66,39 +65,37 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_agent.${CND_DLIB_EXT}: ../sm
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_agent.${CND_DLIB_EXT}: ../../tron/tron_control/dist/Debug/GNU-Linux/libtron_control.so
 
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_agent.${CND_DLIB_EXT}: ../../tron/tron_space/dist/Debug/GNU-Linux/libtron_space.so
+
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_agent.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsmart_agent.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared -fPIC
 
-${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o: src/smarty/agent/AgentBehaviour.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent
+${OBJECTDIR}/src/smart/agent/Aware.o: src/smart/agent/Aware.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smart/agent
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/AgentBehaviour.o src/smarty/agent/AgentBehaviour.cpp
+	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -I../../tron/tron_space/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smart/agent/Aware.o src/smart/agent/Aware.cpp
 
-${OBJECTDIR}/src/smarty/agent/Analyzer.o: src/smarty/agent/Analyzer.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent
+${OBJECTDIR}/src/smart/agent/SmartBehaviour.o: src/smart/agent/SmartBehaviour.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smart/agent
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/Analyzer.o src/smarty/agent/Analyzer.cpp
+	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -I../../tron/tron_space/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smart/agent/SmartBehaviour.o src/smart/agent/SmartBehaviour.cpp
 
-${OBJECTDIR}/src/smarty/agent/Aware.o: src/smarty/agent/Aware.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent
+${OBJECTDIR}/src/smart/agent/core/SmartBus.o: src/smart/agent/core/SmartBus.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smart/agent/core
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/Aware.o src/smarty/agent/Aware.cpp
+	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -I../../tron/tron_space/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smart/agent/core/SmartBus.o src/smart/agent/core/SmartBus.cpp
 
-${OBJECTDIR}/src/smarty/agent/core/AgentBus.o: src/smarty/agent/core/AgentBus.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent/core
+${OBJECTDIR}/src/smart/agent/core/SmartData.o: src/smart/agent/core/SmartData.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/smart/agent/core
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/core/AgentBus.o src/smarty/agent/core/AgentBus.cpp
-
-${OBJECTDIR}/src/smarty/agent/core/AgentData.o: src/smarty/agent/core/AgentData.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/smarty/agent/core
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smarty/agent/core/AgentData.o src/smarty/agent/core/AgentData.cpp
+	$(COMPILE.cc) -g -Isrc -I../smart_task/src -I../../tron/tron_control/src -I../../tron/tron_space/src -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/smart/agent/core/SmartData.o src/smart/agent/core/SmartData.cpp
 
 # Subprojects
 .build-subprojects:
 	cd ../smart_task && ${MAKE}  -f Makefile CONF=Debug
 	cd ../../tron/tron_control && ${MAKE}  -f Makefile CONF=Debug
+	cd ../../tron/tron_space && ${MAKE}  -f Makefile CONF=Debug
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
@@ -109,6 +106,7 @@ ${OBJECTDIR}/src/smarty/agent/core/AgentData.o: src/smarty/agent/core/AgentData.
 .clean-subprojects:
 	cd ../smart_task && ${MAKE}  -f Makefile CONF=Debug clean
 	cd ../../tron/tron_control && ${MAKE}  -f Makefile CONF=Debug clean
+	cd ../../tron/tron_space && ${MAKE}  -f Makefile CONF=Debug clean
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl

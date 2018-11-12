@@ -1,5 +1,5 @@
-#ifndef __SMARTY_TASK_LEARN_H
-#define __SMARTY_TASK_LEARN_H
+#ifndef __SMART_TASK_LEARN_H
+#define __SMART_TASK_LEARN_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -8,7 +8,7 @@
 
 #include "smarty/task/State.h"
 
-namespace smarty
+namespace smart
 {
 class Learn
 {

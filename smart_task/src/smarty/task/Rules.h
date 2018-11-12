@@ -1,5 +1,5 @@
-#ifndef __SMARTY_TASK_RULES_H
-#define __SMARTY_TASK_RULES_H
+#ifndef __SMART_TASK_RULES_H
+#define __SMART_TASK_RULES_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -13,7 +13,7 @@
 #include <set>
 #include <vector>
 
-namespace smarty 
+namespace smart 
 {
 // Class used to manage the rules of a task.
 // A rule is a combination of action, state and its associated result.

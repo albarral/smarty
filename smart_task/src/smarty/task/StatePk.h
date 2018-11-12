@@ -1,5 +1,5 @@
-#ifndef __SMARTY_TASK_STATEPK_H
-#define __SMARTY_TASK_STATEPK_H
+#ifndef __SMART_TASK_STATEPK_H
+#define __SMART_TASK_STATEPK_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -8,7 +8,7 @@
 
 #include <string>
 
-namespace smarty 
+namespace smart 
 {
 class StatePk
 {

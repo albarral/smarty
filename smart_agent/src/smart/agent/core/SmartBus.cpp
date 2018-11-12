@@ -3,19 +3,13 @@
  *   albarral@migtron.com   *
  ***************************************************************************/
 
-#include "smarty/agent/core/AgentData.h"
+#include "smart/agent/core/SmartBus.h"
 
-namespace smarty 
+namespace smart
 {
 // Constructor
-AgentData::AgentData ()
+SmartBus::SmartBus ()
 {    
 }
 
-// Destructor
-//AgentData::~AgentData ()
-//{
-//}
-
 }
-

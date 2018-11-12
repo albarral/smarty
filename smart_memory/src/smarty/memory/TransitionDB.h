@@ -1,5 +1,5 @@
-#ifndef __SMARTY_MEMORY_TRANSITION_DB_H
-#define __SMARTY_MEMORY_TRANSITION_DB_H
+#ifndef __SMART_MEMORY_TRANSITION_DB_H
+#define __SMART_MEMORY_TRANSITION_DB_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -14,7 +14,7 @@
 #include "smarty/task/StatePk.h"
 #include "tron/db/Database.h"
 
-namespace smarty 
+namespace smart 
 {
 class TransitionDB
 {  

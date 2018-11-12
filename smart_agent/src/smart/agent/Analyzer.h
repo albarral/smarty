@@ -1,17 +1,17 @@
-#ifndef __SMARTY_AGENT_ANALYZER_H
-#define __SMARTY_AGENT_ANALYZER_H
+#ifndef __SMART_AGENT_ANALYZER_H
+#define __SMART_AGENT_ANALYZER_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
  *   albarral@migtron.com   *
  ***************************************************************************/
 
-#include "smarty/agent/AgentBehaviour.h"
+#include "smart/agent/SmartBehaviour.h"
 
-namespace smarty
+namespace smart
 {
 // Base module used for aware behaviour.
-class Analyzer : public AgentBehaviour
+class Analyzer : public SmartBehaviour
 {
 protected:    
     Environment* pEnvironment;  // shared access to environment   
@@ -23,7 +23,7 @@ public:
         Analyzer();
         //~Analyzer();
         
-        void connect(AgentBus& oAgentBus, AgentData& oAgentData) override;
+        void connect(SmartBus& oAgentBus, SmartData& oAgentData) override;
         
 protected:
         void informChangeAnalyzed();

@@ -7,7 +7,7 @@
 #include "smarty/memory/TransitionDB.h"
 #include "smarty/task/Transition.h"
 
-namespace smarty 
+namespace smart 
 {
 const std::string StateDB::TABLE = "TAB_STATES";     
 const std::string StateDB::colon = ",";     

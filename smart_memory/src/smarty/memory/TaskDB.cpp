@@ -7,7 +7,7 @@
 #include "smarty/memory/StateDB.h"
 #include "smarty/task/State.h"
 
-namespace smarty 
+namespace smart 
 {
 const std::string TaskDB::TABLE = "TAB_TASKS";     
 const std::string TaskDB::colon = ",";     

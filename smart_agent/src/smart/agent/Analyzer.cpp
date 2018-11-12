@@ -3,12 +3,12 @@
  *   albarral@migtron.com   *
  ***************************************************************************/
 
-#include "smarty/agent/Analyzer.h"
+#include "smart/agent/Analyzer.h"
 
-namespace smarty
+namespace smart
 {
 
-Analyzer::Analyzer() : AgentBehaviour("Analyzer")
+Analyzer::Analyzer() : SmartBehaviour("Analyzer")
 {
     pEnvironment = 0;
     pRules = 0;
@@ -20,11 +20,11 @@ Analyzer::Analyzer() : AgentBehaviour("Analyzer")
 //{
 //}
 
-void Analyzer::connect(AgentBus& oAgentBus, AgentData& oAgentData)
+void Analyzer::connect(SmartBus& oAgentBus, SmartData& oAgentData)
 {
     pEnvironment = &oAgentData.getEnvironment();    
     pRules = &oAgentData.getRules();
-    AgentBehaviour::connect(oAgentBus, oAgentData);
+    SmartBehaviour::connect(oAgentBus, oAgentData);
 }
 
 

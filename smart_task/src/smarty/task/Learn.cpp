@@ -6,7 +6,7 @@
 #include "smarty/task/Learn.h"
 #include "smarty/task/Transition.h"
 
-namespace smarty
+namespace smart
 {  
 Learn::Learn()
 {

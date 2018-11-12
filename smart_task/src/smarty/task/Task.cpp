@@ -5,7 +5,7 @@
 
 #include "smarty/task/Task.h"
 
-namespace smarty 
+namespace smart 
 {
 Task::Task() 
 {

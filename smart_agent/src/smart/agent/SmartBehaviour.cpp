@@ -3,22 +3,22 @@
  *   albarral@migtron.com   *
  ***************************************************************************/
 
-#include "smarty/agent/AgentBehaviour.h"
+#include "smart/agent/SmartBehaviour.h"
 
-namespace smarty
+namespace smart
 {
 // Constructor 
-AgentBehaviour::AgentBehaviour(std::string name) : tron::Behaviour(name)
+SmartBehaviour::SmartBehaviour(std::string name) : tron::Behaviour(name)
 {    
     benabled = false;
-    pAgentBus = 0;
-    pAgentData = 0;
+    pSmartBus = 0;
+    pSmartData = 0;
  }
 
-void AgentBehaviour::connect(AgentBus& oAgentBus, AgentData& oAgentData)
+void SmartBehaviour::connect(SmartBus& oSmartBus, SmartData& oSmartData)
 {
-    pAgentBus = &oAgentBus;    
-    pAgentData = &oAgentData;    
+    pSmartBus = &oSmartBus;    
+    pSmartData = &oSmartData;    
     benabled = true;    
 }
 

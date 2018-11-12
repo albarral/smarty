@@ -5,7 +5,7 @@
 
 #include "smarty/task/Transition.h"
 
-namespace smarty 
+namespace smart 
 {
 Transition::Transition() 
 {

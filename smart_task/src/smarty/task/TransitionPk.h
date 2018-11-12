@@ -1,5 +1,5 @@
-#ifndef __SMARTY_TASK_TRANSITIONPK_H
-#define __SMARTY_TASK_TRANSITIONPK_H
+#ifndef __SMART_TASK_TRANSITIONPK_H
+#define __SMART_TASK_TRANSITIONPK_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -10,7 +10,7 @@
 
 #include "smarty/task/StatePk.h"
 
-namespace smarty 
+namespace smart 
 {
 class TransitionPk
 {

@@ -1,5 +1,5 @@
-#ifndef __SMARTY_AGENT_AGENTBUS_H
-#define __SMARTY_AGENT_AGENTBUS_H
+#ifndef __SMART_AGENT_SMARTBUS_H
+#define __SMART_AGENT_SMARTBUS_H
 
 /***************************************************************************
  *   Copyright (C) 2018 by Migtron Robotics   *
@@ -13,9 +13,9 @@
 //#include "tron/control/brooks/sensor.h"
 #include "tron/control/brooks/sensor2.h"
 
-namespace smarty
+namespace smart
 {
-class AgentBus
+class SmartBus
 {
     private:        
         // INHIBITIONS
@@ -34,7 +34,7 @@ class AgentBus
         tron::Sensor2 SO_ACTION_LEARNED;            // action learned by Learner module
         
     public:
-        AgentBus();
+        SmartBus();
         //~AgentBus();
                 
         // INHIBITIONS

@@ -5,7 +5,7 @@
 
 #include "smarty/task/StatePk.h"
 
-namespace smarty 
+namespace smart 
 {
 StatePk::StatePk() 
 {

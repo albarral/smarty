@@ -5,7 +5,7 @@
 
 #include "smarty/task/TransitionPk.h"
 
-namespace smarty 
+namespace smart 
 {
 TransitionPk::TransitionPk() 
 {
