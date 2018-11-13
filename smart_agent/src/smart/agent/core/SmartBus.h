@@ -35,7 +35,7 @@ class SmartBus
         
     public:
         SmartBus();
-        //~AgentBus();
+        //~SmartBus();
                 
         // INHIBITIONS
         tron::Inhibition& getCO_INHIBIT_AWARE() {return CO_INHIBIT_AWARE;};

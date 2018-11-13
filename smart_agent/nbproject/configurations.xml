@@ -16,11 +16,17 @@
         <logicalFolder name="core" displayName="core" projectFiles="true">
           <itemPath>src/smart/agent/core/SmartBus.cpp</itemPath>
           <itemPath>src/smart/agent/core/SmartBus.h</itemPath>
+          <itemPath>src/smart/agent/core/SmartConfig.cpp</itemPath>
+          <itemPath>src/smart/agent/core/SmartConfig.h</itemPath>
           <itemPath>src/smart/agent/core/SmartData.cpp</itemPath>
           <itemPath>src/smart/agent/core/SmartData.h</itemPath>
         </logicalFolder>
-        <itemPath>src/smart/agent/Aware.cpp</itemPath>
-        <itemPath>src/smart/agent/Aware.h</itemPath>
+        <logicalFolder name="modules" displayName="modules" projectFiles="true">
+          <itemPath>src/smart/agent/modules/Aware.cpp</itemPath>
+          <itemPath>src/smart/agent/modules/Aware.h</itemPath>
+        </logicalFolder>
+        <itemPath>src/smart/agent/Agent.cpp</itemPath>
+        <itemPath>src/smart/agent/Agent.h</itemPath>
         <itemPath>src/smart/agent/SmartBehaviour.cpp</itemPath>
         <itemPath>src/smart/agent/SmartBehaviour.h</itemPath>
       </logicalFolder>
@@ -99,9 +105,9 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="src/smart/agent/Aware.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/smart/agent/Agent.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/smart/agent/Aware.h" ex="false" tool="3" flavor2="0">
+      <item path="src/smart/agent/Agent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/smart/agent/SmartBehaviour.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -111,9 +117,20 @@
       </item>
       <item path="src/smart/agent/core/SmartBus.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/smart/agent/core/SmartConfig.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/smart/agent/core/SmartConfig.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/smart/agent/core/SmartData.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/smart/agent/core/SmartData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/smart/agent/modules/Aware.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/smart/agent/modules/Aware.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="2">
@@ -136,9 +153,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="src/smart/agent/Aware.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/smart/agent/Agent.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/smart/agent/Aware.h" ex="false" tool="3" flavor2="0">
+      <item path="src/smart/agent/Agent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/smart/agent/SmartBehaviour.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -148,9 +165,20 @@
       </item>
       <item path="src/smart/agent/core/SmartBus.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/smart/agent/core/SmartConfig.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/smart/agent/core/SmartConfig.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/smart/agent/core/SmartData.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/smart/agent/core/SmartData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/smart/agent/modules/Aware.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/smart/agent/modules/Aware.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

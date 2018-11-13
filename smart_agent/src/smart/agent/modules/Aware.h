@@ -25,7 +25,7 @@ public:
         // things to do when the behavior starts
         virtual void start() {};
         // behavior sense phase
-        virtual void sense() = 0;            
+        virtual void sense() {};            
         // behavior actuate phase
         virtual void actuate() override;
         // things to do when the behavior ends
