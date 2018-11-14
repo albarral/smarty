@@ -7,6 +7,7 @@
  ***************************************************************************/
 
 #include <mutex>
+#include <vector>
 
 //#include "smarty/task/Task.h"
 //#include "smarty/task/Rules.h"
@@ -35,6 +36,7 @@ class SmartData
 //        void setTask(Task& oTask) {this->oTask = oTask;};
 //        void setRules(Rules& oRules) {this->oRules = oRules;};
         void updateBoard(tron::Board& oBoard2);
+        void updateBoardContents(tron::Board& oBoard2, std::vector<int>& listSpaces);
 };
 }    
 #endif

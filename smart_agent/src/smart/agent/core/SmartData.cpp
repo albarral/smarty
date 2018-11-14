@@ -4,6 +4,7 @@
  ***************************************************************************/
 
 #include "smart/agent/core/SmartData.h"
+#include "tron/space/Space.h"
 
 namespace smart 
 {
@@ -29,6 +30,18 @@ void SmartData::updateBoard(tron::Board& oBoard2)
     std::lock_guard<std::mutex> locker(mutexBoard);
     oBoard.clear();
     oBoard = oBoard2;    
+}
+
+void SmartData::updateBoardContents(tron::Board& oBoard2, std::vector<int>& listSpaces)
+{
+    std::lock_guard<std::mutex> locker(mutexBoard);
+    // update the specified spaces in board
+    for (int pos : listSpaces)
+    {
+        tron::Space* pSpace2 = oBoard2.getSpace(pos);
+        if (pSpace2 != nullptr)
+            oBoard.updateSpace(pos, *pSpace2);
+    }
 }
 
 }
