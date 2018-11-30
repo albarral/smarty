@@ -8,6 +8,7 @@
 
 #include "smart/agent/SmartBehaviour.h"
 #include "tron/space/Board.h"
+#include "tron/space/SpaceCompare.h"
 
 namespace smart
 {
@@ -16,6 +17,7 @@ class Aware : public SmartBehaviour
 {
 protected:    
     tron::Board oBoard;
+    tron::SpaceCompare oSpaceCompare;
     int numChange; 
 
 public:

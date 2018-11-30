@@ -3,8 +3,6 @@
  *   albarral@migtron.com   *
  ***************************************************************************/
 
-#include <vector>
-
 #include "smart/agent/modules/Aware.h"
 
 namespace smart
@@ -23,12 +21,11 @@ void Aware::actuate()
 {
     // note: the Board must be perceived at sense()
     
-    std::vector<int> listDifSpaces; 
     // if board contents changed
-    if (pSmartData->getBoard().compareContents(oBoard, listDifSpaces) == false)      
+    if (!oSpaceCompare.compareBoardContents(oBoard, pSmartData->getBoard()))
     {
         // update shared board 
-        pSmartData->updateBoardContents(oBoard, listDifSpaces);
+        pSmartData->updateBoardContents(oBoard, oSpaceCompare.getListDifferences());
         // and inform everybody
         numChange++;        
         pSmartBus->getSO_CHANGE_DETECTED().setValue(numChange);        
